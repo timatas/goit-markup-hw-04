@@ -8,6 +8,8 @@
   --white: #ffffff;
   --lightslate: #8e8f99;
   --green: #31d0aa;
+  --dairy: #fcfcfc;
+  --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   /*--indent: 24px;
   --items: 3;*/
 }
@@ -123,19 +125,33 @@ img {
   margin-right: auto;
 }
 .nav-list-item {
+  position: relative;
   color: var(--grey);
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.02em;
   padding: 24px 0;
 }
-.nav-list.link:hover,
-.nav-list.link:focus {
+.nav-list-item.link:hover,
+.nav-list-item.link:focus {
   color: var(--ocean);
 }
 
-.nav-list.link:active {
+.nav-list-item.link:active {
   color: var(--ocean);
+}
+.nav-list-item::after {
+  content: '';
+  position: absolute;
+  margin-top: 20px;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+}
+.nav-list-item.current::after {
+  background-color: var(--ocean);
 }
 /* Address */
 .address-list {
@@ -146,8 +162,6 @@ img {
   padding: 24px 0;
 }
 .contacts-link {
-  /* font-style: normal; */
-  /* line-height: 1.5; */
   letter-spacing: 0.02em;
   color: var(--slate);
 }
@@ -416,10 +430,14 @@ img {
   background: var(--ocean);
   color: var(--white);
   border: 1px solid transparent;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
+    0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
 }
 .buttons:active {
   background: var(--ocean);
   color: var(--white);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
+    0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
 }
 .buttons-section-list {
   display: flex;
@@ -440,7 +458,41 @@ img {
   background: var(--white);
   width: calc((100% - 48px) / 3);
 }
+.card-link {
+  display: block;
+  border: 1px solid var(--cloud, #f4f4fd);
+  transition: tranasform 250ms linear;
+}
+.card-link:hover,
+.card-link:focus {
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+}
+
+.thumb {
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 24px 16px;
+  color: var(--cloud);
+  background-color: var(--iris);
+  transform: translateY(100%);
+  transition: transform 250ms linear;
+}
+
+.card-link:hover .overlay,
+.card-link:focus .overlay {
+  transform: translateY(0);
+}
 .menu-list-img {
+  display: block;
 }
 .menu-div {
   padding: 32px 16px;
@@ -506,4 +558,49 @@ img {
 .social-media .social-list-link:hover,
 .social-media .social-list-link:focus {
   background-color: var(--green);
+}
+/* ================================ */
+/* =====Modal window============== */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(46, 47, 66, 0.4);
+  transition: opacity var(--animation), visibility var(--animation);
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 408px;
+  min-height: 584px;
+  border-radius: 4px;
+  background-color: var(--dairy);
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+  opacity: 1;
+  transform: translateX(-50%) translateY(-50%);
+  transition: transform var(--animation), opacity var(--animation);
+}
+.modal-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.backdrop.is-hidden .modal {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-70%);
 }
