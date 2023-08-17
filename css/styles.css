@@ -102,6 +102,8 @@ img {
 }
 .header {
   border-bottom: 1px solid var(--cornflower);
+  box-shadow: зі значенням 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
@@ -130,7 +132,7 @@ img {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  padding: 24px 0;
+  transition: color var(--animation);
 }
 .nav-list-item.link:hover,
 .nav-list-item.link:focus {
@@ -150,8 +152,13 @@ img {
   height: 4px;
   border-radius: 2px;
 }
+.current {
+  color: var(--ocean);
+}
+
 .nav-list-item.current::after {
   background-color: var(--ocean);
+  bottom: -1px;
 }
 /* Address */
 .address-list {
@@ -160,6 +167,7 @@ img {
 }
 .address-list-item {
   padding: 24px 0;
+  transition: color var(--animation);
 }
 .contacts-link {
   letter-spacing: 0.02em;
@@ -183,9 +191,8 @@ img {
       rgba(46, 47, 66, 0.7)
     ),
     url(../images/people-office.jpg);
-
+  background-size: cover;
   background-repeat: no-repeat;
-  background-size: 100%;
   background-position: center;
   border: 1px solid #000;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -221,6 +228,7 @@ img {
   line-height: 1.5;
   letter-spacing: 0.04em;
   cursor: pointer;
+  transition: background-color var(--animation);
 }
 .main-section-btn:hover,
 .main-section-btn:focus {
@@ -350,6 +358,7 @@ img {
   align-items: center;
 }
 .social-list-item {
+  transition: backgrond-color var(--animation);
 }
 .social-list-link {
   display: flex;
@@ -360,6 +369,7 @@ img {
   background-color: var(--iris);
   border-radius: 50%;
   color: var(--cloud);
+  transition: color var(--animation);
 }
 .social-list-link:hover,
 .social-list-link:focus {
@@ -386,13 +396,14 @@ img {
 }
 .customers-list-item {
   fill: currentColor;
+  width: calc((100% - 120px) / 6);
 }
 .customers-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 168px;
-  height: 88px;
+  width: 100%;
+  height: 100%;
   border-radius: 4px;
   border: 1px solid var(--lightslate);
   padding: 16px 32px;
@@ -425,6 +436,8 @@ img {
   border-radius: 4px;
   border: 1px solid var(--cornflower);
   padding: 12px 24px;
+  transition: color var(--animation), background-color var(--animation),
+    border-color var(--animation), box-shadow var(--animation);
 }
 
 .buttons:hover,
@@ -459,6 +472,7 @@ img {
 .menu-list-item {
   background: var(--white);
   width: calc((100% - 48px) / 3);
+  transition: box-shadow var(--animation);
 }
 .card-link {
   display: block;
@@ -471,7 +485,11 @@ img {
     0px 1px 1px 0px rgba(46, 47, 66, 0.16),
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
-
+p {
+  letter-spacing: 0.02em;
+  padding: 40px 32px;
+  transition: transform var(--animation);
+}
 .thumb {
   position: relative;
   overflow: hidden;
@@ -525,6 +543,7 @@ img {
 }
 .footer-container {
   display: flex;
+  align-items: baseline;
 }
 .logo-text {
   margin-right: 120px;
@@ -551,6 +570,13 @@ img {
   color: var(--cloud);
   letter-spacing: 0.02em;
 }
+.social-list {
+  gap: 16px;
+}
+.social-list-icon {
+  transition: fill var(--animation);
+}
+
 .social-text {
   color: var(--white);
   font-weight: 500;
@@ -584,11 +610,11 @@ img {
     0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
   opacity: 1;
   transform: translateX(-50%) translateY(-50%);
-  transition: transform var(--animation), opacity var(--animation);
+  transition: transform var(--animation);
 }
 .modal-btn {
-  background-color: transparent;
-  border: none;
+  background-color: var(--cornflower);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0;
   display: flex;
   align-items: center;
@@ -596,7 +622,15 @@ img {
   position: absolute;
   top: 24px;
   right: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color var(--animation), border var(--animation);
 }
+.modal-btn:hover,
+.modal-btn:focus {
+  fill: var(--white);
+}
+
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
