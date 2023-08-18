@@ -487,11 +487,7 @@ img {
     0px 1px 1px 0px rgba(46, 47, 66, 0.16),
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
-p {
-  letter-spacing: 0.02em;
-  padding: 40px 32px;
-  transition: transform var(--animation);
-}
+
 .thumb {
   position: relative;
   overflow: hidden;
