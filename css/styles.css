@@ -405,6 +405,7 @@ img {
   border: 1px solid var(--lightslate);
   border-radius: 4px;
   color: var(--lightslate);
+  transition: background-color var(--animation), color var(--animation);
 }
 .customers-icon {
   fill: currentColor;
@@ -479,7 +480,7 @@ img {
 .card-link {
   display: block;
   border: 1px solid var(--cloud, #f4f4fd);
-  transition: tranasform 250ms linear;
+  transition: transform var(--animation), box-shadow var(--animation);
 }
 .card-link:hover,
 .card-link:focus {
@@ -502,7 +503,9 @@ img {
   color: var(--cloud);
   background-color: var(--iris);
   transform: translateY(100%);
-  transition: transform 250ms linear;
+  transition: transform var(--animation);
+  letter-spacing: 0.02em;
+  padding: 40px 32px;
 }
 
 .card-link:hover .overlay,
@@ -531,6 +534,7 @@ img {
   font-weight: 400;
   letter-spacing: 0.02em;
   margin: 0;
+  transition: transform var(--animation);
 }
 /* ================================ */
 /* =====Footer styles============== */
