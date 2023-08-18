@@ -370,7 +370,7 @@ img {
   background-color: var(--iris);
   border-radius: 50%;
   color: var(--cloud);
-  transition: background-color var(--animation), var(--animation);
+  transition: background-color var(--animation);
 }
 .social-list-link:hover,
 .social-list-link:focus {
@@ -572,8 +572,19 @@ p {
   color: var(--cloud);
   letter-spacing: 0.02em;
 }
-.social-list-footer.social-list {
+.social-list-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 16px;
+}
+.social-footer-item {
+  width: 40px;
+  transition: background-color var(--animation);
+}
+.social-list-link {
+  width: 100%;
+  height: 100%;
 }
 .social-list-icon {
   transition: fill var(--animation);
