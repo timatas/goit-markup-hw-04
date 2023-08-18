@@ -405,7 +405,7 @@ img {
   border: 1px solid var(--lightslate);
   border-radius: 4px;
   color: var(--lightslate);
-  transition: background-color var(--animation), color var(--animation);
+  transition: color var(--animation), border-color var(--animation);
 }
 .customers-icon {
   fill: currentColor;
@@ -480,7 +480,7 @@ img {
 .card-link {
   display: block;
   border: 1px solid var(--cloud, #f4f4fd);
-  transition: transform var(--animation), box-shadow var(--animation);
+  transition: box-shadow var(--animation);
 }
 .card-link:hover,
 .card-link:focus {
